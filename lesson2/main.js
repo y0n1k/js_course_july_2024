@@ -13,6 +13,7 @@ console.log(array[7]);
 console.log(array[8]);
 console.log(array[9]);
 
+//2 завдання
 let book1 = {
     title: 'The Walking Dead',
     pageCount: 304,
@@ -32,6 +33,7 @@ console.log(book1)
 console.log(book2)
 console.log(book3)
 
+//3 завдання
 let book4 = {
     title: 'The Walking Dead',
     pageCount: 304,
@@ -63,6 +65,7 @@ console.log(book4)
 console.log(book5)
 console.log(book6)
 
+//4 завдання
 let user = [
     {name: 'John', username: 'j0hny4', password: 'qwerty123'},
     {name: 'John', username: 'j0hny4', password: 'fdjghdfigu323'},
@@ -86,6 +89,7 @@ console.log(user[7].password);
 console.log(user[8].password);
 console.log(user[9].password);
 
+//5 завдання
 let temperature =  {
     monday: {
         morning: 19,
@@ -126,8 +130,7 @@ let temperature =  {
 
 console.log(temperature)
 
-//2 завдання
-
+//6 завдання
 let x = 12;
 if (x !== 0) {
     console.log('true');
@@ -157,6 +160,7 @@ else {
     console.log('false');
 }
 
+//7 завдання
 let time = 16;
 if (time <= 15 && time >= 0) {
     console.log('1 quarter');
@@ -174,6 +178,7 @@ else {
     console.log('This number is beyond time');
 }
 
+//8 завдання
 let day = 24;
 if (day <= 10) {
     console.log('1 decade');
@@ -185,6 +190,7 @@ if (day <= 10) {
     console.log('Wrong date');
 }
 
+//9 завдання
 let dayOfWeek = prompt('Enter number of the day');
 switch (dayOfWeek){
     case '1':
@@ -213,6 +219,7 @@ switch (dayOfWeek){
         break;
 }
 
+//10 завдання
 let number1 = +prompt('Enter number one');
 let number2 = +prompt('Enter number two');
 
@@ -226,3 +233,49 @@ else {
     console.log(`${number1} is equal to ${number2}`)
 }
 
+
+//11 завдання варіант 1
+let y = null;
+if (y === 0 || y === null || y === false || y === undefined || y === NaN || y === ''){
+    y = 'default';
+    console.log(y);
+} else{
+    console.log(y);
+}
+//11 завдання варіант 2
+let z = false;
+if (!z){
+    z = 'default';
+    console.log(z);
+} else{
+    console.log(z);
+}
+
+//12 завдання
+let coursesAndDurationArray = [
+    {title: 'JavaScript Complex', monthDuration: 5},
+    {title: 'Java Complex', monthDuration: 6},
+    {title: 'Python Complex', monthDuration: 6},
+    {title: 'QA Complex', monthDuration: 4},
+    {title: 'FullStack', monthDuration: 7},
+    {title: 'Frontend', monthDuration: 4}
+];
+
+if(coursesAndDurationArray[0].monthDuration >= 5){
+    console.log('Super')
+}
+if(coursesAndDurationArray[1].monthDuration >= 5){
+    console.log('Super')
+}
+if(coursesAndDurationArray[2].monthDuration >= 5){
+    console.log('Super')
+}
+if(coursesAndDurationArray[3].monthDuration >= 5){
+    console.log('Super')
+}
+if(coursesAndDurationArray[4].monthDuration >= 5){
+    console.log('Super')
+}
+if(coursesAndDurationArray[5].monthDuration >= 5){
+    console.log('Super')
+}
