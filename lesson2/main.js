@@ -208,10 +208,13 @@ switch (dayOfWeek){
     case '7':
         console.log('Sunday');
         break;
+    default:
+        console.log('???');
+        break;
 }
 
-let number1 = Number(prompt('Enter number one'));
-let number2 = Number(prompt('Enter number two'));
+let number1 = +prompt('Enter number one');
+let number2 = +prompt('Enter number two');
 
 if (number1 > number2){
     console.log(`${number1} is bigger than ${number2}`);
@@ -222,3 +225,4 @@ else if (number1 < number2){
 else {
     console.log(`${number1} is equal to ${number2}`)
 }
+
