@@ -1,5 +1,6 @@
 // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
 
+debugger
 function rectangleArea(a, b) {
     return a * b;
 }
@@ -96,16 +97,14 @@ function showObj (item){
         document.write(`<div>${key.id} ${key.name} ${key.age}</div>`)
     }
 }
-let myObj = showObj(obj);
-console.log(myObj);
-
+showObj(obj);
 
 // - створити функцію яка повертає найменьше число з масиву
 
 let arrayOfNumbers = [34, 12, 763, -645, 12.4, 0];
-console.log(Math.min(...arrayOfNumbers));
+console.log(Math.min(...arrayOfNumbers)); //вбудована функція
 
-function findMin(arr) {
+function findMin(arr) { //власна функція
     let min = arr[0];
     for (let i = 1; i < arr.length; i++) {
         if (arr[i] < min) {
@@ -114,8 +113,8 @@ function findMin(arr) {
     }
     return min;
 }
-let minValue = findMin(arrayOfNumbers);
-console.log(minValue);
+
+console.log(findMin(arrayOfNumbers));
 
 // - створити функцію sum(arr) яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
 
@@ -128,9 +127,7 @@ function sum(arr){
     }
     return total;
 }
-
-let summedArray = sum(arrayToSum);
-console.log(summedArray);
+console.log(sum(arrayToSum));
 
 // - створити функцію swap(arr,index1,index2). Функція міняє місцями заняення у відповідних індексах
 
@@ -143,8 +140,7 @@ function swap(arr, index1, index2){
 
 let arrayToSwap = [12, 57, true, 'Hello'];
 console.log(arrayToSwap)
-let swappedArray= swap(arrayToSwap, 0, 3);
-console.log(swappedArray);
+console.log(swap(arrayToSwap, 0, 3));
 
 // - Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 // Приклад exchange(10000,[{currency:'USD',value:25},{currency:'EUR',value:42}],'USD') // => 400
