@@ -179,10 +179,10 @@ let suitsSorted = cards.reduce((accumulator, card)=>{
 
 console.log(suitsSorted)
 
-// --написати пошук всіх об'єктів, в яких в modules є sass
-// --написати пошук всіх об'єктів, в яких в modules є docker
 console.log('ЗАВДАННЯ №11')
 console.log('')
+// --написати пошук всіх об'єктів, в яких в modules є sass
+// --написати пошук всіх об'єктів, в яких в modules є docker
 let coursesArray = [
     {
         title: 'JavaScript Complex',
