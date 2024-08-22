@@ -122,7 +122,7 @@ let mappedArray = coursesAndDurationArray.map((element, index) => {
 console.log(mappedArray)
 
 // описати колоду карт (від 6 до туза без джокерів)
-console.log('ЗАВДАННЯ №8')
+console.log('ЗАВДАННЯ №9')
 console.log('')
 
 const cards = []
@@ -161,20 +161,100 @@ let find5 = cards.filter(element => element.cardSuit==='clubs' && (element.value
 console.log(find5);
 
 // Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
-console.log('ЗАВДАННЯ №9')
+console.log('ЗАВДАННЯ №10')
 console.log('')
 
 let suitsSorted = cards.reduce((accumulator, card)=>{
-  if (card.cardSuit==='spade'){
-      accumulator[0].push(card);
-  } else if (card.cardSuit==='clubs'){
-      accumulator[1].push(card);
-  } else if (card.cardSuit==='heart'){
-      accumulator[2].push(card);
-  } else {
-      accumulator[3].push(card);
-  }
+        if (card.cardSuit==='spade'){
+            accumulator.spades.push(card);
+        } else if (card.cardSuit==='clubs'){
+            accumulator.clubs.push(card);
+        } else if (card.cardSuit==='heart'){
+            accumulator.heart.push(card);
+        } else {
+            accumulator.diamond.push(card);
+        }
   return accumulator;
-},[[],[],[],[]]);
+},{spades:[],clubs:[], heart:[], diamond:[]});
 
 console.log(suitsSorted)
+
+// --написати пошук всіх об'єктів, в яких в modules є sass
+// --написати пошук всіх об'єктів, в яких в modules є docker
+console.log('ЗАВДАННЯ №11')
+console.log('')
+let coursesArray = [
+    {
+        title: 'JavaScript Complex',
+        monthDuration: 5,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+    },
+    {
+        title: 'Java Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'java core',
+            'java advanced']
+    },
+    {
+        title: 'Python Complex',
+        monthDuration: 6,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'angular',
+            'aws',
+            'docker',
+            'python core',
+            'python advanced']
+    },
+    {
+        title: 'QA Complex',
+        monthDuration: 4,
+        hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+    },
+    {
+        title: 'FullStack',
+        monthDuration: 7,
+        hourDuration: 909,
+        modules: ['html',
+            'css',
+            'js',
+            'mysql',
+            'mongodb',
+            'react',
+            'angular',
+            'aws',
+            'docker',
+            'git',
+            'node.js',
+            'python',
+            'java']
+    },
+    {
+        title: 'Frontend',
+        monthDuration: 4,
+hourDuration: 909,
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+    }
+];
+
+let find6 = coursesArray.filter(element => element.modules.includes('sass'));
+console.log(find6);
+
+let find7 = coursesArray.filter(element => element.modules.includes('docker'));
+console.log(find7);
