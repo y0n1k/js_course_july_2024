@@ -86,20 +86,20 @@ console.log('')
 console.log('ЗАВДАННЯ №5')
 console.log('')
 
-function sortClientArrayAscending(element1, element2) {
+function sortClientArrayAscending(element1, element2) { //зростання
     return element1.order.length - element2.order.length
 }
 
-function sortClientArrayDescending(element1, element2) {
+function sortClientArrayDescending(element1, element2) { //спадання
     return element2.order.length - element1.order.length
 }
 
 let clientArraySortedAsc = clientArray.sort(sortClientArrayAscending); //зростання
-
+console.log('Зростання')
 console.log(clientArraySortedAsc)
 
 let clientArraySortedDes = clientArray.sort(sortClientArrayDescending); //спадання
-
+console.log('Спадання')
 console.log(clientArraySortedDes)
 
 // - Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
