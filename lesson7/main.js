@@ -233,9 +233,12 @@ console.log(cinderellaArray)
 let prince = new Prince('John', 24, 37)
 
 console.log(prince)
-
+console.log('Цикл')
 for (const cinderella of cinderellaArray) {
     if (cinderella.footSize===prince.shoeSize){
         console.log('The Cinderella is', cinderella.name, cinderella)
     }
 }
+console.log('find()')
+let theCinderella = cinderellaArray.find(cinderella => cinderella.footSize === prince.shoeSize)
+console.log('The Cinderella is',theCinderella.name, theCinderella)
