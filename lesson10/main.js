@@ -63,3 +63,26 @@ kgConvert.oninput = function (abc){
     let kg = form3.kg.value;
     lbsConvert.value = kg*2.20462262;
 }
+
+// Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+//     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+
+let form4 = document.forms.form4;
+let generateButton = form4.generate;
+generateButton.onclick = function (abc){
+    abc.preventDefault();
+    let row =  form4.row.value;
+    let column = form4.column.value;
+    let content = form4.content.value;
+    let table = document.createElement('table');
+    for (let i = 0; i < row; i++) {
+        let rowCreate = document.createElement('tr');
+        for (let i = 0; i < column; i++){
+            let columnCreate = document.createElement('th');
+            columnCreate.innerText = content;
+            rowCreate.appendChild(columnCreate);
+        }
+        table.appendChild(rowCreate);
+    }
+    document.body.appendChild(table);
+}
