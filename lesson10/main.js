@@ -86,3 +86,15 @@ generateButton.onclick = function (abc){
     }
     document.body.appendChild(table);
 }
+
+// В localStorage зберігаються масиви. Вам потрібно зробити функцію, які дістає потрібний вам масив з localStorage та додає в нього об'єкт
+// сигнатура функції -
+// addToLocalStorage(arrayName:string,objToAdd:any{}):void
+
+function addToLocaleStorage(arrayName, objToAdd){
+    const listItem = localStorage.getItem(arrayName);
+    const array = JSON.parse(listItem);
+    array.push(objToAdd);
+    localStorage.setItem(arrayName, JSON.stringify(array))
+}
+addToLocaleStorage('sessionList', {})
