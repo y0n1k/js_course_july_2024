@@ -36,9 +36,6 @@ fetch ('https://dummyjson.com/carts')
     })
 
 // - взяти https://dummyjson.com/docs/recipes та вивести інформацію про всі рецепти. Інгредієнти повинні бути список під час відображення.
-let olFunc = function(){
-    return document.createElement('ol');
-}
 
 const recipesDiv = document.getElementById('recipes')
 fetch('https://dummyjson.com/recipes')
