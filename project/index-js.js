@@ -17,6 +17,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
             p2.innerText = user.name;
             userDiv.appendChild(p2)
             console.log(user.id, user.name)
-            document.body.appendChild(userDiv)
+            document.appendChild(userDiv)
         }
     })
