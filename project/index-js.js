@@ -2,21 +2,47 @@
 // 1 отримати масив об'єктів з endpoint`а https://jsonplaceholder.typicode.com/users
 // 2 Вивести id,name всіх user в index.html. Окремий блок для кожного user.
 // 3 Додати кожному блоку кнопку/посилання , при кліку на яку відбувається перехід  на сторінку user-details.html, котра має детальну інфорацію про об'єкт на який клікнули
-let body = document.getElementsByTagName('body')
+
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(userObject => {
         console.log(userObject)
-        for (const user of userObject) {
-            let userDiv = document.createElement('div')
-            userDiv.classList.add('userDiv')
-            let p1 = document.createElement('p')
-            p1.innerText = user.id;
-            userDiv.appendChild(p1)
-            let p2 = document.createElement('p')
-            p2.innerText = user.name;
-            userDiv.appendChild(p2)
-            console.log(user.id, user.name)
-            document.appendChild(userDiv)
+        for (let i = 0; i < userObject.length; i += 2) {
+
+            let surroundDiv = document.createElement('div')
+            surroundDiv.classList.add('surroundDiv')
+            for (let j = 0; j < 2; j++) {
+                if (i + j >= userObject.length) break;
+                let user = userObject[i + j];
+                let userDiv = document.createElement('div')
+                userDiv.classList.add('userDiv')
+                let textDiv = document.createElement('div')
+                textDiv.classList.add('textDiv')
+                let h21 = document.createElement('h2')
+                h21.innerText = user.id;
+                textDiv.appendChild(h21)
+                surroundDiv.appendChild(userDiv)
+                let h22 = document.createElement('h2')
+                h22.innerText = user.name;
+                textDiv.appendChild(h22)
+                userDiv.appendChild(textDiv)
+                console.log(user.id, user.name)
+                let button = document.createElement('button')
+                button.classList.add('user-details-button')
+                button.innerText = 'Деталі про користувача'
+                // button.href = 'user-details.html'
+                button.onclick = function () {
+                    window.location.href = `user-details.html?id=${user.id}`;
+                }
+                userDiv.appendChild(button)
+                userDiv.onmouseover = function () {
+                    userDiv.style.scale = '105%';
+                }
+                userDiv.onmouseleave = function () {
+                    userDiv.style.scale = '100%';
+                }
+                surroundDiv.appendChild(userDiv)
+            }
+            document.body.appendChild(surroundDiv)
         }
     })
