@@ -2,7 +2,7 @@
 // 5 Додати кнопку "post of current user", при кліку на яку, з'являються title всіх постів поточного юзера
 // (для получения постов используйте эндпоинт https://jsonplaceholder.typicode.com/users/USER_ID/posts)
 //     // 6 Каждому посту додати кнопку/посилання, при кліку на яку відбувається перехід на сторінку post-details.html, котра має детальну інфу про поточний пост
-
+debugger
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
@@ -12,55 +12,76 @@ const userDiv = document.createElement('div')
 userDiv.classList.add('userInfoDiv')
 document.body.appendChild(userDiv)
 console.log(userId)
+let url = new URL(`https://jsonplaceholder.typicode.com/users/${userId}`)
 if (userId) {
-    // Завантажуємо інформацію про конкретного користувача
-    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    fetch(url)
+    // fetch(url)
         .then(response => response.json())
         .then(users => {
             console.log(users)
             for (const user in users) {
+                const keyDiv = document.createElement('div');
+                keyDiv.classList.add('keyDiv')
                 let object = users[user];
+                let caption = document.createElement('h3');
+                caption.innerText = `${user}:`;
+                keyDiv.appendChild(caption);
                 if (typeof object === 'object') {
-                    const keyDiv = document.createElement('div');
-                    keyDiv.classList.add('keyDiv')
-                    let caption = document.createElement('h3');
-                    caption.innerText = `${user}:`;
-                    keyDiv.appendChild(caption);
                     let ol = document.createElement('ol');
                     for (const item in object) {
+                        let addressArray = object[item];
+                        if (typeof addressArray === 'object'){
+                            let liOuter = document.createElement('li')
+                            liOuter.innerText = `${item}: `;
+                            const ulNew = document.createElement('ul')
+                            for (element in addressArray) {
+                                ol.appendChild(ulNew);
+                                const li = document.createElement('li')
+                                li.innerText = `${element}: ${addressArray[element]}`;
+                                ulNew.appendChild(li);
+                                liOuter.appendChild(ulNew);
+                            }
+                            ol.appendChild(liOuter)
+                        } else {
+                        // if (typeof item === 'object') {
+                        //     for (element in item) {
+                        //         const li = document.createElement('li')
+                        //         li.innerText = `${item}: ${object[item]}`;
+                        //         ol.appendChild(li);
+                        //     }
+                        // }
                         const li = document.createElement('li')
                         li.innerText = `${item}: ${object[item]}`;
                         ol.appendChild(li);
+                        }
                     }
                     keyDiv.appendChild(ol);
-                    userDiv.appendChild(keyDiv);
-                    let button = document.createElement('button');
-                    button.innerText = 'Пости цього користувача';
-                    button.classList.add('user-details-button');
-                    button.onclick = function () {
-                        window.location.href = `post-details.html?id=${users.id}`;
-                    }
-                    keyDiv.appendChild(button)
                 } else {
-                    const keyDiv = document.createElement('div');
-                    keyDiv.classList.add('keyDiv')
-                    let h3 = document.createElement('h3');
-                    h3.innerText = `${user}: `;
                     let p = document.createElement('p')
                     p.innerText = users[user];
-                    keyDiv.appendChild(h3);
                     keyDiv.appendChild(p);
-                    userDiv.appendChild(keyDiv);
-                    let button = document.createElement('button');
-                    button.innerText = 'Пости цього користувача';
-                    button.classList.add('user-details-button');
-                    button.onclick = function () {
-                        window.location.href = `post-details.html?id=${users.id}`;
-                    }
-                    keyDiv.appendChild(button)
                 }
-
+                userDiv.appendChild(keyDiv);
             }
-
+            let postsDiv = document.createElement('div');
+            postsDiv.classList.add('postsDiv');
+            let button = document.createElement('button');
+            button.innerText = 'Пости цього користувача';
+            button.classList.add('user-details-button');
+            button.onclick = function () {
+                fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+                    .then(result => result.json())
+                    .then(commentsArray => {
+                        for (const comments of commentsArray) {
+                            let postLink = document.createElement('a');
+                            postLink.classList.add('postLink');
+                            postLink.href = 'post-details.html';
+                            postLink.innerText = comments.title;
+                            postsDiv.appendChild(postLink)
+                        }
+                    })
+            }
+            document.body.appendChild(postsDiv);
+            postsDiv.appendChild(button);
         });
 }

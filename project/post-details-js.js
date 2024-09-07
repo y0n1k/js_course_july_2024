@@ -3,3 +3,4 @@ function getQueryParam(param) {
     return urlParams.get(param);
 }
 const userId = getQueryParam('id');
+
