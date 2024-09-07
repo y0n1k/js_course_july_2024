@@ -13,16 +13,13 @@ const postId = parseInt(getParam('postId'));
 console.log('Post id ', postId)
 console.log('user id ', userId)
 
-if (userId && postId) {
+    let postInfo = document.getElementsByClassName('postInfo')[0]
         fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
             .then(response => response.json())
             .then(posts => {
                 console.log(posts)
-                const postInfo = document.createElement('div')
-                postInfo.classList.add('postInfo')
                 for (const post of posts) {
                     if (post.id === postId) {
-                        // console.log(post)
                         for (item in post) {
                             const postInfoDiv = document.createElement('div')
                             postInfoDiv.classList.add('postInfoDiv')
@@ -31,12 +28,11 @@ if (userId && postId) {
                             postInfoDiv.appendChild(caption)
                             const text = document.createElement('p')
                             text.innerText = post[item];
-                            postInfoDiv.appendChild(text)
-                            postInfo.appendChild(postInfoDiv)
+                            postInfoDiv.appendChild(text);
+                            postInfo.appendChild(postInfoDiv);
                         }
                     }
                 }
-                document.body.appendChild(postInfo)
             })
         fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
             .then(response => response.json())
@@ -69,4 +65,3 @@ if (userId && postId) {
                     }
                 }
             })
-}

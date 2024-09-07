@@ -43,13 +43,6 @@ if (userId) {
                             }
                             ol.appendChild(liOuter)
                         } else {
-                        // if (typeof item === 'object') {
-                        //     for (element in item) {
-                        //         const li = document.createElement('li')
-                        //         li.innerText = `${item}: ${object[item]}`;
-                        //         ol.appendChild(li);
-                        //     }
-                        // }
                         const li = document.createElement('li')
                         li.innerText = `${item}: ${object[item]}`;
                         ol.appendChild(li);
@@ -63,8 +56,8 @@ if (userId) {
                 }
                 userDiv.appendChild(keyDiv);
             }
-            let postsDiv = document.createElement('div');
-            postsDiv.classList.add('postsDiv');
+            let postLinksDiv = document.createElement('div');
+            postLinksDiv.classList.add('postLinksDiv');
             let button = document.createElement('button');
             button.innerText = 'Пости цього користувача';
             button.classList.add('user-details-button');
@@ -77,11 +70,11 @@ if (userId) {
                             postLink.classList.add('postLink');
                             postLink.href = `post-details.html?userId=${userId}&postId=${comments.id}`;
                             postLink.innerText = comments.title;
-                            postsDiv.appendChild(postLink)
+                            postLinksDiv.appendChild(postLink)
                         }
                     })
             }
-            document.body.appendChild(postsDiv);
-            postsDiv.appendChild(button);
+            document.body.appendChild(postLinksDiv);
+            postLinksDiv.appendChild(button);
         });
 }

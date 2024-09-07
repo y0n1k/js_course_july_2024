@@ -6,6 +6,7 @@
 fetch('https://jsonplaceholder.typicode.com/users')
     .then(value => value.json())
     .then(userObject => {
+        localStorage.setItem('user', JSON.stringify(userObject))
         console.log(userObject)
         for (let i = 0; i < userObject.length; i += 2) {
 
@@ -30,7 +31,6 @@ fetch('https://jsonplaceholder.typicode.com/users')
                 let button = document.createElement('button')
                 button.classList.add('user-details-button')
                 button.innerText = 'Деталі про користувача'
-                // button.href = 'user-details.html'
                 button.onclick = function () {
                     window.location.href = `user-details.html?userId=${user.id}`;
                 }
