@@ -4,3 +4,10 @@ function getQueryParam(param) {
 }
 const userId = getQueryParam('id');
 
+if (userId){
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+        .then(value => value.json())
+        .then(posts => {
+            console.log(posts)
+        })
+}
