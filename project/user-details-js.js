@@ -3,16 +3,17 @@
 // (для получения постов используйте эндпоинт https://jsonplaceholder.typicode.com/users/USER_ID/posts)
 //     // 6 Каждому посту додати кнопку/посилання, при кліку на яку відбувається перехід на сторінку post-details.html, котра має детальну інфу про поточний пост
 
-function getQueryParam(param) {
+function getParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
-const userId = getQueryParam('userId');
+const userId = getParam('userId');
 const userDiv = document.createElement('div')
 userDiv.classList.add('userInfoDiv')
 document.body.appendChild(userDiv)
 console.log(userId)
 let url = new URL(`https://jsonplaceholder.typicode.com/users/${userId}`)
+
 if (userId) {
     fetch(url)
         .then(response => response.json())
