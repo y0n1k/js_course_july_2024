@@ -32,7 +32,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
                 button.innerText = 'Деталі про користувача'
                 // button.href = 'user-details.html'
                 button.onclick = function () {
-                    window.location.href = `user-details.html?id=${user.id}`;
+                    window.location.href = `user-details.html?userId=${user.id}`;
                 }
                 userDiv.appendChild(button)
                 userDiv.onmouseover = function () {

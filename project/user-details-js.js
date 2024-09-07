@@ -7,7 +7,7 @@ function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
 }
-const userId = getQueryParam('id');
+const userId = getQueryParam('userId');
 const userDiv = document.createElement('div')
 userDiv.classList.add('userInfoDiv')
 document.body.appendChild(userDiv)
@@ -15,7 +15,6 @@ console.log(userId)
 let url = new URL(`https://jsonplaceholder.typicode.com/users/${userId}`)
 if (userId) {
     fetch(url)
-    // fetch(url)
         .then(response => response.json())
         .then(users => {
             console.log(users)
@@ -75,7 +74,7 @@ if (userId) {
                         for (const comments of commentsArray) {
                             let postLink = document.createElement('a');
                             postLink.classList.add('postLink');
-                            postLink.href = 'post-details.html';
+                            postLink.href = `post-details.html?userId=${userId}&postId=${comments.id}`;
                             postLink.innerText = comments.title;
                             postsDiv.appendChild(postLink)
                         }
