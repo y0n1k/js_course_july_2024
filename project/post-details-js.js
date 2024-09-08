@@ -17,16 +17,16 @@ console.log('user id ', userId)
         fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
             .then(response => response.json())
             .then(posts => {
-                console.log(posts)
+                console.log(posts);
                 for (const post of posts) {
                     if (post.id === postId) {
                         for (item in post) {
-                            const postInfoDiv = document.createElement('div')
-                            postInfoDiv.classList.add('postInfoDiv')
-                            const caption = document.createElement('h3')
+                            const postInfoDiv = document.createElement('div');
+                            postInfoDiv.classList.add('postInfoDiv');
+                            const caption = document.createElement('h3');
                             caption.innerText = `${item}: `;
-                            postInfoDiv.appendChild(caption)
-                            const text = document.createElement('p')
+                            postInfoDiv.appendChild(caption);
+                            const text = document.createElement('p');
                             text.innerText = post[item];
                             postInfoDiv.appendChild(text);
                             postInfo.appendChild(postInfoDiv);
@@ -46,13 +46,13 @@ console.log('user id ', userId)
                         if (i + j >= comments.length) break;
                         let commentsArray = comments[i + j];
                         const commentDiv = document.createElement('div');
-                        commentDiv.classList.add('commentDiv')
+                        commentDiv.classList.add('commentDiv');
                         commentsDiv.appendChild(commentDiv);
                         for (const element in commentsArray) {
                             const commentField = document.createElement('div');
                             commentField.classList.add('commentField');
                             commentDiv.appendChild(commentField);
-                            const key = document.createElement('p')
+                            const key = document.createElement('p');
                             key.innerText = `${element}: ${commentsArray[element]}`;
                             commentField.appendChild(key);
                             commentDiv.onmouseover = function () {

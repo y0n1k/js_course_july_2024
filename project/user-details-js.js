@@ -21,7 +21,7 @@ if (userId) {
             console.log(users)
             for (const user in users) {
                 const keyDiv = document.createElement('div');
-                keyDiv.classList.add('keyDiv')
+                keyDiv.classList.add('keyDiv');
                 let object = users[user];
                 let caption = document.createElement('h3');
                 caption.innerText = `${user}:`;
@@ -31,17 +31,17 @@ if (userId) {
                     for (const item in object) {
                         let addressArray = object[item];
                         if (typeof addressArray === 'object'){
-                            let liOuter = document.createElement('li')
+                            let liOuter = document.createElement('li');
                             liOuter.innerText = `${item}: `;
-                            const ulNew = document.createElement('ul')
+                            const ulNew = document.createElement('ul');
                             for (element in addressArray) {
                                 ol.appendChild(ulNew);
-                                const li = document.createElement('li')
+                                const li = document.createElement('li');
                                 li.innerText = `${element}: ${addressArray[element]}`;
                                 ulNew.appendChild(li);
                                 liOuter.appendChild(ulNew);
                             }
-                            ol.appendChild(liOuter)
+                            ol.appendChild(liOuter);
                         } else {
                         const li = document.createElement('li')
                         li.innerText = `${item}: ${object[item]}`;
