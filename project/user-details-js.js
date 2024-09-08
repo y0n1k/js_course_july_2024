@@ -61,16 +61,20 @@ if (userId) {
             let button = document.createElement('button');
             button.innerText = 'Пости цього користувача';
             button.classList.add('user-details-button');
+            let linksVisible = false;
             button.onclick = function () {
                 fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
                     .then(result => result.json())
                     .then(commentsArray => {
-                        for (const comments of commentsArray) {
-                            let postLink = document.createElement('a');
-                            postLink.classList.add('postLink');
-                            postLink.href = `post-details.html?userId=${userId}&postId=${comments.id}`;
-                            postLink.innerText = comments.title;
-                            postLinksDiv.appendChild(postLink)
+                        if (!linksVisible) {
+                            for (const comments of commentsArray) {
+                                let postLink = document.createElement('a');
+                                postLink.classList.add('postLink');
+                                postLink.href = `post-details.html?userId=${userId}&postId=${comments.id}`;
+                                postLink.innerText = comments.title;
+                                postLinksDiv.appendChild(postLink);
+                                linksVisible = true;
+                            }
                         }
                     })
             }

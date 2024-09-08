@@ -90,6 +90,7 @@ header{
     width: 90vw;
 }
 .postLink {
+    display: block;
     text-decoration: none;
     font-size: 16px;
     border: gray;
@@ -126,4 +127,7 @@ header{
     display: flex;
     flex-direction: column;
     transition: 0.25s;
+}
+.hide {
+    display: none;
 }
